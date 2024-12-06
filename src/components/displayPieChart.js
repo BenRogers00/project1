@@ -3,13 +3,15 @@ import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 import { useState } from "react";
 import { Data } from "../utils/Data";
-import PieChart from "../components/PieChart";
+import InputCategoryAmounts from "./input";
+import dataToSend from "./input";
 
 Chart.register(CategoryScale);
 
 export default function DispPieChart() {
+
   const [chartData, setChartData] = useState({
-    labels: Data.map((data) => data.type), 
+    labels: dataToSend.map((data) => data.type), 
     datasets: [
       {
         label: "Money:",
@@ -28,7 +30,7 @@ export default function DispPieChart() {
 
   return (
     <div className="PieChart">
-      <PieChart chartData={chartData} />
+        <DispPieChart />
     </div>
   );
 }
